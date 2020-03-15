@@ -21,8 +21,8 @@ func init() {
 	debug("app started") // message will not appear unless run with -debug switch
 
 	// gops helps us get stack trace if something wrong/slow in production
-	if err := agent.Listen(agent.Options{
-		ShutdownCleanup: true, // automatically closes on os.Interrupt
+	if err := agent.Listen(&agent.Options{
+		NoShutdownCleanup: false, // automatically closes on os.Interrupt
 	}); err != nil {
 		log.Fatal(err)
 	}
@@ -34,6 +34,6 @@ func main() {
 	wg := &sync.WaitGroup{}
 	wg.Add(1)
 	log.Println("NSQ consumer is now running")
-
+	//test push lagi
 	wg.Wait()
 }
