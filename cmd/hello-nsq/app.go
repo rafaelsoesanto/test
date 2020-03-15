@@ -34,6 +34,6 @@ func main() {
 	wg := &sync.WaitGroup{}
 	wg.Add(1)
 	log.Println("NSQ consumer is now running")
-
+	//test push
 	wg.Wait()
 }
