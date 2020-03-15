@@ -1,0 +1,12 @@
+"/var/log/gosample/*.log" {
+  daily
+  create 777 www-data www-data
+  rotate 7
+  compress
+  su root www-data
+  sharedscripts
+  postrotate
+    sleep 3
+    reload toko-gosample >/dev/null 2>&1 || true
+  endscript
+}
